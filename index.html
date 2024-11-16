@@ -904,10 +904,314 @@
       <a href="mailto:karima.ait-youcef@univ-annaba.dz" class="social-link" target="_blank">
         <span class="social-icon">📧</span> Ait Youcef (Oral Expression)
       </a>
+      <a href="https://drive.google.com/drive/folders/15i96jFeuW3aL1saJBF-sFBU3FMPZ9u2M?usp=drive_link" class="social-link" target="_blank">
+        <span class="social-icon">📂</span> Lessons on Google Drive
+      </a>
+      <a href="https://www.youtube.com/playlist?list=PLTnLt7kV_1q6a_kz2mmVENqgsx2NGGS9o" class="social-link" target="_blank">
+        <span class="social-icon">🎥</span> Lessons on YouTube Playlist
+      </a>
     </div>
   </div>
-
+  
+  
   <!-- Your other website content here -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أذكار إسلامية</title>
+  <style>
+    /* Adhkar Widget Styling */
+    #adhkar-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(145deg, #f3f4f6, #e2e4e8); /* Subtle gradient */
+      color: #2f4f4f; /* Dark slate gray for elegant text */
+      font-family: "Kelly Slab", cursive; /* Modern and artistic font */
+      font-size: 1.2rem;
+      padding: 15px 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease-out;
+      z-index: 1000;
+      text-align: center;
+      max-width: 300px;
+      opacity: 0.95;
+      direction: rtl;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #adhkar-widget:hover {
+      transform: scale(1.05); /* Slight zoom effect on hover */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #adhkar-widget button {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      border: none;
+      background: none;
+      color: #999;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    #adhkar-widget p {
+      margin: 0;
+      line-height: 1.8;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    #adhkar-widget p span {
+      font-size: 1.5rem; /* Emoji size */
+    }
+
+    @keyframes fadeIn {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 0.95;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Adhkar Widget -->
+  <div id="adhkar-widget">
+    <button onclick="closeAdhkar()">×</button>
+    <p id="adhkar-text"><span>🌙</span> سبحان الله وبحمده، سبحان الله العظيم</p>
+  </div>
+
+  <script>
+    // List of Adhkar in Arabic
+    const adhkarList = [
+      "🌙 سبحان الله وبحمده، سبحان الله العظيم",
+      "⭐ لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير",
+      "💖 اللهم صلِّ وسلم على نبينا محمد",
+      "🤲 أستغفر الله وأتوب إليه",
+      "🛡️ حسبي الله لا إله إلا هو عليه توكلت وهو رب العرش العظيم",
+      "🌟 اللهم اجعلني من التوابين واجعلني من المتطهرين",
+      "📿 ربنا آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار"
+    ];
+
+    let currentIndex = 0;
+
+    // Function to update Adhkar text
+    function updateAdhkar() {
+      const adhkarText = document.getElementById("adhkar-text");
+      currentIndex = (currentIndex + 1) % adhkarList.length; // Cycle through adhkar
+      adhkarText.innerHTML = `<span>${adhkarList[currentIndex][0]}</span> ${adhkarList[currentIndex].slice(2)}`;
+    }
+
+    // Function to close the widget temporarily
+    function closeAdhkar() {
+      const widget = document.getElementById("adhkar-widget");
+      widget.style.display = "none"; // Hide widget
+
+      // Show it again after 5 seconds with a new adhkar
+      setTimeout(() => {
+        updateAdhkar();
+        widget.style.display = "flex"; // Show widget
+      }, 5000);
+    }
+
+    // Update Adhkar every 10 seconds
+    setInterval(updateAdhkar, 10000);
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Forum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Kelly Slab', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    #forum {
+      background-color: #ffffff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: 30px auto;
+      width: 100%;
+    }
+
+    #forum h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .comment-section {
+      margin-top: 20px;
+    }
+
+    .comment {
+      display: flex;
+      align-items: center;
+      background-color: #f0f4f8;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .comment .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .comment .details {
+      flex: 1;
+    }
+
+    .comment .details h3 {
+      margin: 0;
+      color: #333;
+      font-size: 1.1rem;
+    }
+
+    .comment .details p {
+      margin: 5px 0 0;
+      color: #666;
+      font-size: 1rem;
+    }
+
+    .comment-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .comment-form input,
+    .comment-form textarea {
+      width: 80%;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    .comment-form button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .comment-form button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div id="forum">
+    <h2>Class Forum</h2>
+
+    <div class="comment-form">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <textarea id="comment-text" placeholder="Write your comment here..." rows="4" required></textarea>
+      <button onclick="postComment()">Post Comment</button>
+    </div>
+
+    <div id="comments" class="comment-section"></div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      databaseURL: "YOUR_DATABASE_URL",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const commentsRef = ref(db, "comments");
+
+    function postComment() {
+      const name = document.getElementById("name").value;
+      const text = document.getElementById("comment-text").value;
+
+      if (!name || !text) {
+        alert("Please fill out both fields.");
+        return;
+      }
+
+      push(commentsRef, { name, text });
+
+      document.getElementById("name").value = "";
+      document.getElementById("comment-text").value = "";
+    }
+
+    function loadComments() {
+      onValue(commentsRef, (snapshot) => {
+        const commentsSection = document.getElementById("comments");
+        commentsSection.innerHTML = "";
+        snapshot.forEach((child) => {
+          const data = child.val();
+          const commentDiv = document.createElement("div");
+          commentDiv.className = "comment";
+          commentDiv.innerHTML = `
+            <div class="details">
+              <h3>${data.name}</h3>
+              <p>${data.text}</p>
+              <button onclick="deleteComment('${child.key}')">Delete</button>
+            </div>
+          `;
+          commentsSection.appendChild(commentDiv);
+        });
+      });
+    }
+
+    function deleteComment(key) {
+      remove(ref(db, `comments/${key}`));
+    }
+
+    loadComments();
+  </script>
 </body>
 </html>
 
