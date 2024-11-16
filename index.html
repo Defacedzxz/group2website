@@ -990,51 +990,59 @@
   </style>
 </head>
 <body>
-  <!-- Adhkar Widget -->
-  <div id="adhkar-widget">
-    <button onclick="closeAdhkar()">×</button>
-    <p id="adhkar-text"><span>🌙</span> سبحان الله وبحمده، سبحان الله العظيم</p>
-  </div>
+ <!-- Adhkar Widget -->
+<div id="adhkar-widget">
+  <button onclick="closeAdhkar()">×</button>
+  <p id="adhkar-text"><span>🌙</span> سبحان الله وبحمده، سبحان الله العظيم</p>
+</div>
 
-  <script>
-    // List of Adhkar in Arabic
-    const phrases = [
-  "⭐ سبحان الله وبحمده، سبحان الله العظيم",
-  "⭐ لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير",
-  "⭐ اللهم صلِّ وسلم على نبينا محمد",
-  "⭐ أستغفر الله وأتوب إليه",
-  "⭐ حسبي الله لا إله إلا هو عليه توكلت وهو رب العرش العظيم",
-  "⭐ اللهم اجعلني من التوابين واجعلني من المتطهرين",
-  "⭐ ربنا آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار"
-];
+<script>
+  // List of Adhkar in Arabic
+  const phrases = [
+    "⭐ سبحان الله وبحمده، سبحان الله العظيم",
+    "⭐ لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير",
+    "⭐ اللهم صلِّ وسلم على نبينا محمد",
+    "⭐ أستغفر الله وأتوب إليه",
+    "⭐ حسبي الله لا إله إلا هو عليه توكلت وهو رب العرش العظيم",
+    "⭐ اللهم اجعلني من التوابين واجعلني من المتطهرين",
+    "⭐ ربنا آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار"
+  ];
 
+  let currentIndex = 0;
 
-    let currentIndex = 0;
+  // Function to update Adhkar text
+  function updateAdhkar() {
+    const adhkarText = document.getElementById("adhkar-text");
+    adhkarText.innerHTML = phrases[currentIndex]; // Update the text with the next adhkar
+    currentIndex = (currentIndex + 1) % phrases.length; // Cycle through adhkar
+  }
 
-    // Function to update Adhkar text
-    function updateAdhkar() {
-      const adhkarText = document.getElementById("adhkar-text");
-      currentIndex = (currentIndex + 1) % adhkarList.length; // Cycle through adhkar
-      adhkarText.innerHTML = `<span>${adhkarList[currentIndex][0]}</span> ${adhkarList[currentIndex].slice(2)}`;
-    }
+  // Function to close the widget temporarily
+  function closeAdhkar() {
+    const widget = document.getElementById("adhkar-widget");
+    widget.style.display = "none"; // Hide widget
 
-    // Function to close the widget temporarily
-    function closeAdhkar() {
-      const widget = document.getElementById("adhkar-widget");
-      widget.style.display = "none"; // Hide widget
+    // Show it again after 4 seconds with a new adhkar
+    setTimeout(() => {
+      updateAdhkar();
+      widget.style.display = "flex"; // Show widget
+    }, 4000); // Show after 4 seconds
+  }
 
-      // Show it again after 5 seconds with a new adhkar
+  // Update Adhkar every 4 seconds (even if closed)
+  setInterval(() => {
+    updateAdhkar();
+    const widget = document.getElementById("adhkar-widget");
+    if (widget.style.display === "none") {
       setTimeout(() => {
-        updateAdhkar();
-        widget.style.display = "flex"; // Show widget
-      }, 5000);
+        widget.style.display = "flex"; // Show widget again after being closed
+      }, 4000); // Show after 4 seconds
     }
-
-    // Update Adhkar every 10 seconds
-    setInterval(updateAdhkar, 10000);
-  </script>
+  }, 4000);
+</script>
 </body>
 </html>
+
 
 <!DOCTYPE html>
 <html lang="en">
